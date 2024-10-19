@@ -1,0 +1,22 @@
+﻿@model List<Game>
+
+<h1>Games - Your gaming adventure starts here</h1>
+<div class="games-list">
+    @foreach (var obj in Model.OrderBy(u => u.OpeningTime))
+    {
+        <div class="game-item">
+            <img src="@obj.ImageUrl" alt="@obj.Name" class="game-image" />
+            <div class="game-details">
+                <h2>@obj.Name</h2>
+                <p><strong>Block Name:</strong> @obj.Block</p>
+                <p><strong>Opening Times:</strong> @DateTime.Today.Add(@obj.OpeningTime).ToString("h:mm tt")</p>
+                <p><strong>Closing Times:</strong> @DateTime.Today.Add(@obj.ClosingTime).ToString("h:mm tt")</p>
+                <p><strong>Maximum Booking Hours:</strong> @obj.MaxBookingHours</p>
+                <div class="btn-group">
+                    <a href="@Url.Action("Book", "Booking", new { area = "Customer", RoomId = obj.GameId, BookingType = (int)enumBookingType.Game })" class="btn btn-primary">Book</a>
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

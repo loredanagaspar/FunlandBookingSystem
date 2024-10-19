@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="container mt-5">
+    <h1>Welcome to Funland</h1>
+    <p>Discover our amazing facilities:</p>
+    <div class="row">
+        <!-- Games Section -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="~/images/LaserTag.jpg" class="card-img-top" alt="Games">
+                <div class="card-body">
+                    <h5 class="card-title">Games</h5>
+                    <p class="card-text">Enjoy a variety of exciting games.</p>
+                    <a href="@Url.Action("Index", "Game")" class="btn btn-primary">Explore Games</a>
+                </div>
+            </div>
+        </div>
+        <!-- Party Rooms Section -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="~/images/PartyRoom2.JPEG" class="card-img-top" alt="Party Rooms">
+                <div class="card-body">
+                    <h5 class="card-title">Party Rooms</h5>
+                    <p class="card-text">Book our rooms for unforgettable parties.</p>
+                    <a href="@Url.Action("Index", "PartyRoom")" class="btn btn-primary">Explore Party Rooms</a>
+                </div>
+            </div>
+        </div>
+        <!-- Swimming Pools Section -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="~/images/SwimmingPool.jpg" class="card-img-top" alt="Swimming Pools">
+                <div class="card-body">
+                    <h5 class="card-title">Swimming Pools</h5>
+                    <p class="card-text">Relax and have fun in our swimming pools.</p>
+                    <a href="@Url.Action("Index", "Amenity")" class="btn btn-primary">Explore Swimming Pools</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

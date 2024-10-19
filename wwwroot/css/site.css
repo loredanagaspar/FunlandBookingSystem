@@ -1,22 +1,267 @@
+.divider-text {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the text horizontally */
+    text-align: center;
+    color: white; /* Adjust to your preferred color */
+    margin: 20px 0; /* Add spacing around the divider */
+    font-size: 1.2rem; /* Adjust the text size */
+    position: relative;
+}
+
+    .divider-text::before,
+    .divider-text::after {
+        content: "";
+        flex: 1;
+        border-bottom: 1px solid #555; /* Line color */
+        margin: 0 10px; /* Spacing between line and text */
+    }
+
+
+
+
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+/* Amenity Styling */
+.amenity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.amenity-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.amenity-image {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.amenity-details {
+    text-align: center;
+}
+
+    .amenity-details h2 {
+        margin: 10px 0;
+    }
+
+    .amenity-details p {
+        margin: 5px 0;
+    }
+
+.btn-group {
+    margin-top: 15px;
+}
+
+    .btn-group .btn {
+        margin-right: 10px;
+    }
+
+/* Game Styling */
+.game-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.game-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.game-image {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.game-details {
+    text-align: center;
+}
+
+    .game-details h2 {
+        margin: 10px 0;
+    }
+
+    .game-details p {
+        margin: 5px 0;
+    }
+
+/* Party Room Styling */
+/* General styles for the Party Rooms list */
+.party-rooms-list {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping of items if necessary */
+    gap: 20px; /* Spacing between items */
+}
+
+/* Style for each Party Room item */
+.party-room-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    width: 100%; /* Ensures responsiveness */
+    max-width: 350px; /* Maximum width for the item */
+}
+
+/* Style for the image inside each Party Room item */
+.room-image {
+    width: 100%; /* Responsive width */
+    height: 200px; /* Fixed height to ensure uniformity */
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    border-radius: 10px;
+}
+
+/* Style for the details section of each Party Room item */
+.room-details {
+    text-align: center;
+}
+
+    .room-details h2 {
+        margin: 10px 0;
+    }
+
+    .room-details p {
+        margin: 5px 0;
+    }
+
+/* Style for the button group */
+.btn-group {
+    margin-top: 15px;
+}
+
+    .btn-group .btn {
+        margin-right: 10px;
+    }
+
+
+.facility-gallery {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.facility-item {
+    text-align: center;
+    margin: 0 10px;
+}
+
+    .facility-item img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .facility-item h3 {
+        margin-top: 10px;
+        font-size: 1.5rem;
+    }
+
+    .facility-item p {
+        color: #666;
+        /* Navbar button styles */
+        .navbar-nav .nav-link
+
+{
+    padding: 10px 20px; /* Increased padding for larger buttons */
+    border-radius: 8px; /* More rounded corners */
+    color: #fff; /* Text color */
+    font-size: 18px; /* Larger font size */
+    font-weight: bold; /* Bold text */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+}
+
+/* Change background color on hover */
+.navbar-nav .nav-link:hover {
+    background-color: #0056b3; /* Background color on hover */
+    color: #fff; /* Text color on hover */
+}
+
+/* Optional: Active link styling */
+.navbar-nav .nav-link.active {
+    background-color: #003d7a; /* Different background color for active link */
+    color: #fff; /* Text color */
+}
+
+}
+
+.footer {
+    background-color: #007bff; /* Fun blue background */
+    color: #ffffff; /* White text for clarity */
+    text-align: center;
+    padding: 10px 0; /* Padding for spacing */
+    font-size: 14px; /* Font size */
+}
+
+    .footer a {
+        color: #ffffff; /* Link color to white */
+        text-decoration: underline; /* Optional: Add underline to links */
+    }
+
+        .footer a:hover {
+            color: #ffcc00; /* Change link color on hover */
+            font-weight: bold; /* Make the link bold on hover */
+        }    
+
+.custom-logout-btn {
+    color: #258cfb; /* Baby blue color */
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: transparent; /* Ensure the background is transparent */
+    border: none;
+    border: none; /* Remove any border */
+    padding: 0; /* Remove any padding */
+    cursor: pointer;
+}
+
+    .custom-logout-btn:hover {
+        color: #1a6dbb;
+        background-color: transparent;
+    }
+
+/* Change display text*/
+.custom-label {
+    font-weight: bold;
+    margin-right: 10px;
 }

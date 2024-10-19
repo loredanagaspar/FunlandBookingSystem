@@ -1,0 +1,85 @@
+﻿@model FunlandV3.Models.Booking
+
+@{
+    ViewData["Title"] = "Booking Confirmation";
+}
+
+<h1>Booking Confirmation</h1>
+
+<div class="confirmation-details">
+    <h2>Your Booking Details:</h2>
+    <p><strong>Booking ID:</strong> @Model.BookingID</p>
+    @if (@Model.BookingType == (int)enumBookingType.Ammenity)
+    {
+        <p><strong>Booking Type: </strong>Swimming Pool</p>
+        if (@Model.RoomId == 1)
+        {
+            <p><strong>Room: </strong>Kids Pool</p>
+        }
+        else if (Model.RoomId == 2)
+        {
+            <p><strong>Room: </strong></p>
+        }
+
+    }
+    else if (@Model.BookingType == (int)enumBookingType.Game)
+    {
+        <p><strong>Booking Type: </strong>Game Room</p>
+        if (@Model.RoomId == 1)
+        {
+            <p><strong>Room: </strong>Laser Tag</p>
+        }
+        else if (Model.RoomId == 2)
+        {
+            <p><strong>Room: </strong>Bowling</p>
+        }
+    }
+
+    else if (@Model.BookingType == (int)enumBookingType.PartyRoom)
+    {
+        <p><strong>Booking Type: </strong>Party Room</p>
+        if (@Model.RoomId == 1)
+        {
+            <p><strong>Room: </strong>Room A</p>
+        }
+        else if (Model.RoomId == 2)
+        {
+            <p><strong>Room: </strong>Room B</p>
+        }
+        else if (@Model.RoomId == 3)
+        {
+            <p><strong>Room: </strong>Room C</p>
+        }
+        else if (Model.RoomId == 4)
+        {
+            <p><strong>Room: </strong>Room D</p>
+        }
+        else if (@Model.RoomId == 5)
+        {
+            <p><strong>Room: </strong>Room E</p>
+        }
+        else if (Model.RoomId == 6)
+        {
+            <p><strong>Room: </strong>Room F</p>
+        }
+    }   
+    <p><strong>Booking Date:</strong> @Model.BookingDate.ToString("d")</p>
+    <p><strong>Start Time:</strong> @Model.StartTime.ToString("t")</p>
+    <p><strong>End Time:</strong> @Model.EndTime.ToString("t")</p>
+    <p><strong>Duration:</strong> @Model.Duration.TotalHours hours</p>
+    <p><strong>Created On:</strong> @Model.CreatedOn.ToString("g")</p>
+</div>
+
+<hr />
+
+<div class="form-group">
+    <a asp-controller="Booking" asp-action="DisplayBookings" class="btn btn-primary">View Bookings</a>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Main Menu</a>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

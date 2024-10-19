@@ -1,0 +1,141 @@
+﻿@model Booking
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<h1>Create Booking</h1>
+@if (@Model.BookingType == (int)enumBookingType.Ammenity)
+{
+    <p><h2>Book Swimming Pool</h2></p>
+    if (@Model.RoomId == 1)
+    {
+        <p><h3>Kids Pool</h3></p>
+    }
+    else if (Model.RoomId == 2)
+    {
+        <p><h3>Adult Pool</h3></p>
+    }
+
+   
+}
+else if (@Model.BookingType == (int)enumBookingType.Game)
+{
+    <p><h2>Book Game</h2></p>
+    if (@Model.RoomId == 1)
+    {
+        <p><h3>Laser Tag</h3></p>
+    }
+    else if (Model.RoomId == 2)
+    {
+        <p><h3>Bowling</h3></p>
+    }
+}
+else if (@Model.BookingType == (int)enumBookingType.PartyRoom)
+{
+    <p><h2>Book Party Room</h2></p>
+    if (@Model.RoomId == 1)
+    {
+        <p><h3>Room A</h3></p>
+    }
+    else if (Model.RoomId == 2)
+    {
+        <p><h3>Room B</h3></p>
+    }
+    else if (@Model.RoomId == 3)
+    {
+        <p><h3>Room C</h3></p>
+    }
+    else if (Model.RoomId == 4)
+    {
+        <p><h3>Room D</h3></p>
+    }
+    else if (@Model.RoomId == 5)
+    {
+        <p><h3>Room E</h3></p>
+    }
+    else if (Model.RoomId == 6)
+    {
+        <p><h3>Room F</h3></p>
+    }
+}
+ <form asp-action="Book" method="post">
+    <input type="hidden" id="RoomId" asp-for="RoomId" />
+    <input type="hidden" id="BookingType" asp-for="BookingType" />
+    @if (@Model.BookingType == (int)enumBookingType.Ammenity)
+    {
+        <div class="form-group">
+            <label asp-for="Age" class="control-label custom-label"></label>
+            <input asp-for="Age" class="form-control" type="number" />
+            <span asp-validation-for="Age" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="NumberOfKids" class="control-label custom-label"></label>
+            <input asp-for="NumberOfKids" class="form-control" type="number" />
+            <span asp-validation-for="NumberOfKids" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="KidsAgeConfirmed" class="control-label custom-label"></label>
+            <input asp-for="KidsAgeConfirmed" type="checkbox" class="form-check-input" id="kidsAgeConfirmed" />
+            <span asp-validation-for="KidsAgeConfirmed" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="RequiredParentsConfirmed" class="control-label custom-label"></label>
+            <input asp-for="RequiredParentsConfirmed" type="checkbox" class="form-check-input" id="requiredParentsConfirmed" />
+            <span asp-validation-for="RequiredParentsConfirmed" class="text-danger"></span>
+        </div>
+    }
+    <div class="form-group">
+        <label asp-for="BookingDate" class="control-label custom-label"></label>
+        <input asp-for="BookingDate" class="form-control" type="date" />
+        <span asp-validation-for="BookingDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="StartTime" class="control-label custom-label"></label>
+        <input asp-for="StartTime" class="form-control" type="time" />
+        <span asp-validation-for="StartTime" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EndTime" class="control-label custom-label"></label>
+        <input asp-for="EndTime" class="form-control" type="time" />
+        <span asp-validation-for="EndTime" class="text-danger"></span>
+    </div>
+
+    <input type="hidden" asp-for="Duration" />
+    <span asp-validation-for="Duration" class="text-danger"></span>
+    <hr />
+    <div class="d-flex gap-2">
+        <a href="javascript:window.history.back();" class="btn btn-secondary">Back</a>
+        <button type="submit" class="btn btn-primary">Confirm Booking</button>        
+    </div>
+    <hr />
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        document.getElementById('BookingType').addEventListener('change', function () {
+            var selectedValue = this.value;
+            var hiddenInput = document.getElementById('BookingType');
+
+            // Set the value of the hidden input based on the selected option
+            if (selectedValue == '1') {
+                hiddenInput.value = '1';  // Change to the appropriate value
+            } else if (selectedValue == '2') {
+                hiddenInput.value = '2';  // Change to the appropriate value
+            } else if (selectedValue == '3') {
+                hiddenInput.value = '3';  // Change to the appropriate value
+            }
+        });
+    </script>
+
+    <script>
+        // Get today's date in YYYY-MM-DD format
+        const today = new Date().toISOString().split('T')[0];
+        // Set the value of the input to today's date
+        document.getElementById('BookingDate').value = today;
+    </script>
+}

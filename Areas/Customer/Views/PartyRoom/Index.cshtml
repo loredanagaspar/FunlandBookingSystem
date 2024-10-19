@@ -1,0 +1,23 @@
+﻿@model List<PartyRoom>
+
+<h1>Party Rooms - Celebrate in style!</h1>
+<div class="party-rooms-list">
+    @foreach (var room in Model)
+    {
+        <div class="party-room-item">
+            <img src="@room.ImageUrl" alt="@room.Name" class="room-image" />
+            <div class="room-details">
+                <h2>@room.Name</h2>
+                <p><strong>Block Name:</strong> @room.Block</p>
+                <p><strong>Opening Times:</strong> @DateTime.Today.Add(room.OpeningTime).ToString("h:mm tt")</p>
+                <p><strong>Closing Times:</strong> @DateTime.Today.Add(room.ClosingTime).ToString("h:mm tt")</p>
+                <p><strong>Floor:</strong> @room.Floor</p>
+                <p><strong>Room Number:</strong> @room.RoomNumber</p>
+                <div class="btn-group">
+                    <a href="@Url.Action("Book", "Booking", new { area = "Customer", RoomId = room.PartyRoomId, BookingType = (int)enumBookingType.PartyRoom})" class="btn btn-primary">Book</a>
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,28 @@
+﻿@model List<Amenity>
+
+<h1>Swimming Pools - Your splashing adventure starts here</h1>
+<div class="amenities-list">
+    @foreach (var obj in Model)
+    {
+        <div class="amenity-item">
+            <img src="@obj.ImageUrl" alt="@obj.Name" class="game-image" />
+            <div class="amenity-details">
+                <h2>@obj.Name</h2>
+                <p><strong>Block Name:</strong> @obj.Block</p>
+                <p><strong>Opening Times:</strong> @DateTime.Today.Add(@obj.OpeningTime).ToString("h:mm tt")</p>
+                <p><strong>Closing Times:</strong> @DateTime.Today.Add(@obj.ClosingTime).ToString("h:mm tt")</p>
+                <p><strong>Pool Type:</strong> @obj.PoolType</p>
+                <p><strong>Maximum Booking Hours:</strong> @obj.MaxBookingHours hours</p>
+                <p><strong>Requires Supervision:</strong> @(obj.RequiresSupervision ? "Yes" : "No")</p>
+                @if (!string.IsNullOrEmpty(obj.AgeRestriction))
+                {
+                    <p><strong>Age Restriction:</strong> @obj.AgeRestriction</p>
+                }
+                <div class="btn-group">
+                    <a href="@Url.Action("Book", "Booking", new { area = "Customer", RoomId = obj.AmenityId, BookingType = (int)enumBookingType.Ammenity})" class="btn btn-primary">Book</a>
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
